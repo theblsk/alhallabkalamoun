@@ -6,12 +6,12 @@
 * first_name: string
 * last_name: string
 * phone_number: string
-* role: ADMIN | CUSTOMER | MANAGER
-    * ADMIN can't be created, only manually in Clerk and in Neon
-    * CUSTOMER is the default on Sign Up
-    * MANAGER can ONLY be set by an Admin and not another manager
-    * role can't be edited, only set by server side manipulations using next routes, and using ADMIN verified users
-    * role on create must be validated client and server side and database level through RLS
+* role: one of ADMIN | CUSTOMER | MANAGER (Postgres enum)
+    * ADMIN cannot be self-assigned or created via user flows. It must be assigned by an Admin-only server operation (API route/server action) and mirrored from Clerk claims; do not modify directly in Neon.
+    * CUSTOMER is the default on sign-up.
+    * MANAGER can be assigned only by an Admin (never by another Manager).
+    * role is immutable via client; only set/changed by admin-protected server code.
+    * Validate role on create/update at: client (UI), server (authorization checks), and database (constraints + RLS).
 -> Relevent Information to Users:
 * A user can:
     * read their profile

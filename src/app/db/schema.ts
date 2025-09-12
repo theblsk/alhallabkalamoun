@@ -1,4 +1,4 @@
-import { pgEnum, pgTable, text, timestamp } from 'drizzle-orm/pg-core'
+import { pgEnum, pgTable, text, timestamp, uniqueIndex } from 'drizzle-orm/pg-core'
 
 export const userRole = pgEnum('user_role', ['ADMIN', 'CUSTOMER', 'MANAGER'])
 
@@ -11,6 +11,10 @@ export const Users = pgTable('users', {
   role: userRole('role').notNull().default('CUSTOMER'),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
+}, (table) => {
+  return {
+    usersEmailUnique: uniqueIndex('users_email_unique').on(table.email),
+  }
 })
 
 
