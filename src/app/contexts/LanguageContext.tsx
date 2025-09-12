@@ -11,7 +11,7 @@ interface LanguageContextType {
   isRTL: boolean
 }
 
-const translations = {
+const translations: Record<Language, Record<string, string>> = {
   en: {
     // Header
     "franchise.name": "Refaat Al Hallab",
@@ -21,6 +21,10 @@ const translations = {
     "nav.about": "About",
     "nav.contact": "Contact",
     "cart.items": "items",
+
+    // Auth
+    "auth.signIn": "Sign In",
+    "auth.signUp": "Sign Up",
 
     // Hero
     "hero.title": "Taste the Tradition of Lebanon",
@@ -108,6 +112,10 @@ const translations = {
     "nav.about": "من نحن",
     "nav.contact": "اتصل بنا",
     "cart.items": "عنصر",
+
+    // Auth
+    "auth.signIn": "تسجيل الدخول",
+    "auth.signUp": "إنشاء حساب",
 
     // Hero
     "hero.title": "تذوق تراث لبنان",

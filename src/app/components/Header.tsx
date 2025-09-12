@@ -3,6 +3,7 @@
 import { ShoppingCart, Globe } from "lucide-react"
 import { useLanguage } from "../contexts/LanguageContext"
 import { useCart } from "../contexts/CartContext"
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs"
 
 interface HeaderProps {
   onCartClick: () => void
@@ -60,6 +61,28 @@ export default function Header({ onCartClick }: HeaderProps) {
                 </span>
               )}
             </button>
+
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="hidden sm:inline-flex h-9 items-center rounded-full bg-white/10 px-4 text-sm font-medium text-white backdrop-blur transition hover:bg-white/20">
+                  {t('auth.signIn')}
+                </button>
+              </SignInButton>
+              <SignUpButton mode="modal" forceRedirectUrl="/complete-profile" fallbackRedirectUrl="/complete-profile">
+                <button className="inline-flex h-9 items-center rounded-full bg-gold-500 px-4 text-sm font-medium text-hallab-blue transition hover:bg-gold-400">
+                  {t('auth.signUp')}
+                </button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton
+                appearance={{
+                  elements: {
+                    userButtonAvatarBox: 'ring-2 ring-gold-500',
+                  },
+                }}
+              />
+            </SignedIn>
           </div>
         </div>
       </div>
