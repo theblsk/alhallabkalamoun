@@ -2,6 +2,7 @@
 
 import { useLanguage } from "../contexts/LanguageContext"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 
 const menuItems = [
   {
@@ -101,15 +102,16 @@ interface MenuProps {
 }
 
 export default function Menu({ onItemClick }: MenuProps) {
-  const { t } = useLanguage()
+  const tMenu = useTranslations('menu')
+  const tItems = useTranslations('items')
 
   return (
     <section id="menu" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl font-bold text-navy-900 mb-4">{t("menu.title")}</h2>
-          <p className="text-lg text-navy-700 max-w-2xl mx-auto">{t("menu.subtitle")}</p>
+          <h2 className="text-4xl font-bold text-navy-900 mb-4">{tMenu("title")}</h2>
+          <p className="text-lg text-navy-700 max-w-2xl mx-auto">{tMenu("subtitle")}</p>
         </div>
 
         {/* Menu Grid */}
@@ -125,7 +127,7 @@ export default function Menu({ onItemClick }: MenuProps) {
               <div className="relative overflow-hidden">
                 <Image
                   src={item.image || "/placeholder.svg"}
-                  alt={t(item.name)}
+                  alt={tItems(item.name + '.name')}
                   width={300}
                   height={250}
                   className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
@@ -136,30 +138,30 @@ export default function Menu({ onItemClick }: MenuProps) {
                     item.availableToday ? "bg-navy-600 text-white" : "bg-gold-500 text-white"
                   }`}
                 >
-                  {item.availableToday ? t("menu.available.today") : t("menu.order.tomorrow")}
+                  {item.availableToday ? tMenu("available.today") : tMenu("order.tomorrow")}
                 </div>
               </div>
 
               {/* Item Details */}
               <div className="p-6 flex-1 flex flex-col">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-navy-900 transition-colors duration-200">{t(item.name)}</h3>
+                  <h3 className="text-xl font-bold text-navy-900 transition-colors duration-200">{tItems(item.name + '.name')}</h3>
                   <span className="text-2xl font-bold text-gold-600 animate-pulse">${item.price}</span>
                 </div>
 
                 <p className="text-navy-700 mb-4 text-sm leading-relaxed flex-1 transition-colors duration-200">
-                  {t(item.description)}
+                  {tItems(item.description)}
                 </p>
 
                 {!item.availableToday && (
-                  <p className="text-gold-700 text-sm mb-4 font-medium animate-fade-in">{t("menu.ready.tomorrow")}</p>
+                  <p className="text-gold-700 text-sm mb-4 font-medium animate-fade-in">{tMenu("ready.tomorrow")}</p>
                 )}
 
                 <button
                   onClick={() => onItemClick(item)}
                   className="w-full bg-navy-600 hover:bg-navy-800 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 mt-auto transform hover:scale-105 hover:shadow-lg"
                 >
-                  {t("menu.add.to.order")}
+                  {tMenu("add.to.order")}
                 </button>
               </div>
             </div>

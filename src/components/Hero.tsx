@@ -3,9 +3,11 @@
 import { useLanguage } from "../contexts/LanguageContext"
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import { useTranslations } from "next-intl"
 
 export default function Hero() {
-  const { t } = useLanguage()
+  const tHero = useTranslations('hero')
+  const tFranchise = useTranslations('franchise')
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
@@ -32,21 +34,21 @@ export default function Hero() {
                 isLoaded ? "animate-fade-in-up-optimized" : "opacity-0 translate-y-5"
               }`}
             >
-              {t("hero.branch.location")}
+              {tFranchise("name")} - {tHero("branch.location")}
             </div>
             <h1
               className={`text-4xl md:text-6xl font-bold text-navy-900 leading-tight transition-all duration-300 ${
                 isLoaded ? "animate-stagger-fast-1" : "opacity-0 translate-y-5"
               }`}
             >
-              {t("hero.title")}
+              {tHero("title")}
             </h1>
             <p
               className={`text-lg text-navy-700 leading-relaxed transition-all duration-300 ${
                 isLoaded ? "animate-stagger-fast-2" : "opacity-0 translate-y-5"
               }`}
             >
-              {t("hero.subtitle")}
+              {tHero("subtitle")}
             </p>
             <button
               onClick={scrollToMenu}
@@ -54,7 +56,7 @@ export default function Hero() {
                 isLoaded ? "animate-stagger-fast-3" : "opacity-0 translate-y-5"
               }`}
             >
-              {t("hero.cta")}
+              {tHero("cta")}
             </button>
           </div>
 

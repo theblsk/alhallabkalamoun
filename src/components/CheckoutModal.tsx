@@ -6,13 +6,15 @@ import { useState } from "react"
 import { X } from "lucide-react"
 import { useLanguage } from "../contexts/LanguageContext"
 import { useCart } from "../contexts/CartContext"
+import { useTranslations } from "next-intl"
 
 interface CheckoutModalProps {
   onClose: () => void
 }
 
 export default function CheckoutModal({ onClose }: CheckoutModalProps) {
-  const { t } = useLanguage()
+  const tCheckout = useTranslations('checkout')
+  const tCart = useTranslations('cart')
   const { items, totalPrice, clearCart } = useCart()
   const [formData, setFormData] = useState({
     name: "",
@@ -47,7 +49,7 @@ export default function CheckoutModal({ onClose }: CheckoutModalProps) {
       <div className="bg-white/95 backdrop-blur-sm rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-white/20 animate-modal-fade-in">
         {/* Header */}
         <div className="flex justify-between items-center p-6 border-b animate-fade-in-down">
-          <h2 className="text-2xl font-bold text-navy-900">{t("checkout.title")}</h2>
+          <h2 className="text-2xl font-bold text-navy-900">{tCheckout("title")}</h2>
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:rotate-90"
@@ -75,7 +77,7 @@ export default function CheckoutModal({ onClose }: CheckoutModalProps) {
                 </div>
               ))}
               <div className="flex justify-between items-center pt-4 text-lg font-bold animate-scale-in">
-                <span>{t("cart.total")}</span>
+                <span>{tCart("total")}</span>
                 <span className="text-gold-600">${totalPrice.toFixed(2)}</span>
               </div>
             </div>
@@ -83,10 +85,10 @@ export default function CheckoutModal({ onClose }: CheckoutModalProps) {
 
           {/* Customer Information */}
           <div className="mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            <h3 className="text-lg font-semibold text-navy-900 mb-4">{t("checkout.customer.info")}</h3>
+            <h3 className="text-lg font-semibold text-navy-900 mb-4">{tCheckout("customer.info")}</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-                <label className="block text-sm font-medium text-navy-700 mb-2">{t("checkout.name")}</label>
+                <label className="block text-sm font-medium text-navy-700 mb-2">{tCheckout("name")}</label>
                 <input
                   type="text"
                   name="name"
@@ -97,7 +99,7 @@ export default function CheckoutModal({ onClose }: CheckoutModalProps) {
                 />
               </div>
               <div className="animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-                <label className="block text-sm font-medium text-navy-700 mb-2">{t("checkout.phone")}</label>
+                <label className="block text-sm font-medium text-navy-700 mb-2">{tCheckout("phone")}</label>
                 <input
                   type="tel"
                   name="phone"
@@ -108,7 +110,7 @@ export default function CheckoutModal({ onClose }: CheckoutModalProps) {
                 />
               </div>
               <div className="md:col-span-2 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-                <label className="block text-sm font-medium text-navy-700 mb-2">{t("checkout.email")}</label>
+                <label className="block text-sm font-medium text-navy-700 mb-2">{tCheckout("email")}</label>
                 <input
                   type="email"
                   name="email"
@@ -123,15 +125,15 @@ export default function CheckoutModal({ onClose }: CheckoutModalProps) {
 
           {/* Pickup Time */}
           <div className="mb-8 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
-            <label className="block text-sm font-medium text-navy-700 mb-2">{t("checkout.pickup.time")}</label>
+            <label className="block text-sm font-medium text-navy-700 mb-2">{tCheckout("pickup.time")}</label>
             <select
               name="pickupTime"
               value={formData.pickupTime}
               onChange={handleInputChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all duration-200"
             >
-              <option value="today">{t("checkout.today")}</option>
-              <option value="tomorrow">{t("checkout.tomorrow")}</option>
+              <option value="today">{tCheckout("today")}</option>
+              <option value="tomorrow">{tCheckout("tomorrow")}</option>
             </select>
           </div>
 
@@ -143,7 +145,7 @@ export default function CheckoutModal({ onClose }: CheckoutModalProps) {
               className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all duration-200 transform hover:scale-105"
               disabled={isSubmitting}
             >
-              {t("checkout.cancel")}
+              {tCheckout("cancel")}
             </button>
             <button
               type="submit"
@@ -156,7 +158,7 @@ export default function CheckoutModal({ onClose }: CheckoutModalProps) {
                   Processing...
                 </>
               ) : (
-                t("checkout.place.order")
+                tCheckout("place.order")
               )}
             </button>
           </div>

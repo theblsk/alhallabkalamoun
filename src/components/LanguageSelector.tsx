@@ -1,16 +1,18 @@
 "use client"
 
-import { useLanguage } from "../contexts/LanguageContext"
+import { useRouter, usePathname } from "@/i18n/navigation"
 
 interface LanguageSelectorProps {
   onClose: () => void
 }
 
 export default function LanguageSelector({ onClose }: LanguageSelectorProps) {
-  const { setLanguage } = useLanguage()
+  const router = useRouter()
+  const pathname = usePathname()
 
   const handleLanguageSelect = (lang: "en" | "ar") => {
-    setLanguage(lang)
+    // Switch locale using next-intl's navigation API
+    router.replace(pathname, { locale: lang })
     onClose()
   }
 

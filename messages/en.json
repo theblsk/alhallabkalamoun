@@ -1,0 +1,150 @@
+{
+  "franchise": {
+    "name": "Refaat Al Hallab",
+    "tagline": "Authentic Lebanese Sweets Since 1881"
+  },
+  "navbar": {
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out"
+  },
+  "hero": {
+    "title": "Taste the Tradition of Lebanon",
+    "subtitle": "Discover our exquisite collection of authentic Lebanese sweets, crafted with love and tradition passed down through generations.",
+    "cta": "Explore Our Menu",
+    "branch": {
+      "location": "The Refaat Hallab branch in Kalamoun"
+    }
+  },
+  "menu": {
+    "title": "Our Delicious Menu",
+    "subtitle": "Handcrafted Lebanese sweets made with the finest ingredients",
+    "available": {
+      "today": "Available Today"
+    },
+    "order": {
+      "tomorrow": "Order Tomorrow"
+    },
+    "ready": {
+      "tomorrow": "Ready Tomorrow by 2 PM"
+    },
+    "add": {
+      "to": {
+        "order": "Add to Order"
+      }
+    }
+  },
+  "items": {
+    "item": {
+      "baklawa": {
+        "assorted": {
+          "name": "Baklava Assorted",
+          "desc": "Mix of pistachio, walnut, and cashew baklava"
+        },
+        "mixed": {
+          "name": "Mixed Baklawa",
+          "desc": "Assorted baklawa with pistachios, walnuts, and almonds"
+        },
+        "pistachios": {
+          "name": "Pistachio Baklawa",
+          "desc": "Premium baklawa filled with finest Aleppo pistachios"
+        }
+      },
+      "maamoul": {
+        "base": {
+          "name": "Ma'amoul",
+          "desc": "Date and nut-filled cookies"
+        },
+        "dates": {
+          "name": "Maamoul with Dates",
+          "desc": "Traditional date-filled semolina cookies"
+        },
+        "walnuts": {
+          "name": "Walnut Maamoul",
+          "desc": "Buttery semolina cookies filled with spiced walnuts"
+        }
+      },
+      "knafeh": {
+        "nabulsieh": {
+          "name": "Knafeh Nabulsieh",
+          "desc": "Traditional cheese knafeh with crispy shredded phyllo"
+        }
+      },
+      "muhallabia": {
+        "base": {
+          "name": "Muhallabia",
+          "desc": "Creamy milk pudding with rose water"
+        },
+        "rose": {
+          "name": "Rose Muhallabia",
+          "desc": "Creamy milk pudding infused with rose water"
+        }
+      },
+      "halawet": {
+        "jibn": {
+          "name": "Halawet El Jibn",
+          "desc": "Sweet cheese rolls with ashta cream"
+        }
+      },
+      "osmalieh": {
+        "name": "Osmalieh",
+        "desc": "Crispy phyllo layers with cream and pistachios"
+      },
+      "aish": {
+        "saraya": {
+          "name": "Aish El Saraya",
+          "desc": "Palace bread with cream and candied orange blossom"
+        }
+      }
+    }
+  },
+  "cart": {
+    "items": "items",
+    "title": "Your Order",
+    "empty": "Your cart is empty",
+    "total": "Total",
+    "checkout": "Proceed to Checkout",
+    "continue": {
+      "shopping": "Continue Shopping"
+    }
+  },
+  "checkout": {
+    "title": "Order Details",
+    "customer": {
+      "info": "Customer Information"
+    },
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "email": "Email Address",
+    "pickup": {
+      "time": "Pickup Time"
+    },
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "place": {
+      "order": "Place Order"
+    },
+    "cancel": "Cancel"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us for orders and inquiries",
+    "phone": "Phone",
+    "call": {
+      "now": "Call Now"
+    },
+    "location": "Location",
+    "branch": "The Refaat Hallab branch in Kalamoun",
+    "hours": {
+      "label": "Opening Hours",
+      "daily": "Daily: 8:00 AM - 10:00 PM"
+    },
+    "orders": "For Orders & Inquiries"
+  }
+}

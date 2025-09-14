@@ -11,10 +11,9 @@ export const Users = pgTable('users', {
   role: userRole('role').notNull().default('CUSTOMER'),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
-}, (table) => {
-  return {
-    usersEmailUnique: uniqueIndex('users_email_unique').on(table.email),
-  }
-})
+}, (table) => [
+    uniqueIndex('users_email_unique').on(table.email),
+  ]
+);
 
 

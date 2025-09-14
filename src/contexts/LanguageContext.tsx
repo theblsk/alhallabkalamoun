@@ -25,6 +25,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Auth
     "auth.signIn": "Sign In",
     "auth.signUp": "Sign Up",
+    "auth.signOut": "Sign Out",
 
     // Hero
     "hero.title": "Taste the Tradition of Lebanon",
@@ -116,6 +117,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Auth
     "auth.signIn": "تسجيل الدخول",
     "auth.signUp": "إنشاء حساب",
+    "auth.signOut": "تسجيل الخروج",
 
     // Hero
     "hero.title": "تذوق تراث لبنان",

@@ -4,6 +4,7 @@ import { X, Plus, Minus, Trash2 } from "lucide-react"
 import { useLanguage } from "../contexts/LanguageContext"
 import { useCart } from "../contexts/CartContext"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 
 interface CartProps {
   onClose: () => void
@@ -11,7 +12,7 @@ interface CartProps {
 }
 
 export default function Cart({ onClose, onCheckout }: CartProps) {
-  const { t } = useLanguage()
+  const tCart = useTranslations('cart')
   const { items, updateQuantity, removeItem, totalPrice } = useCart()
 
   return (
@@ -19,7 +20,7 @@ export default function Cart({ onClose, onCheckout }: CartProps) {
       <div className="bg-white/95 backdrop-blur-sm w-full max-w-md h-full overflow-y-auto shadow-2xl border-l border-white/20 animate-slide-in-right">
         {/* Header */}
         <div className="flex justify-between items-center p-6 border-b sticky top-0 bg-white animate-fade-in-down">
-          <h2 className="text-2xl font-bold text-navy-900">{t("cart.title")}</h2>
+          <h2 className="text-2xl font-bold text-navy-900">{tCart("title")}</h2>
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:rotate-90"
@@ -41,12 +42,12 @@ export default function Cart({ onClose, onCheckout }: CartProps) {
                   />
                 </svg>
               </div>
-              <p className="text-gray-600 mb-4">{t("cart.empty")}</p>
+              <p className="text-gray-600 mb-4">{tCart("empty")}</p>
               <button
                 onClick={onClose}
                 className="text-gold-600 hover:text-gold-700 font-semibold transition-colors duration-200"
               >
-                {t("cart.continue.shopping")}
+                {tCart("continue.shopping")}
               </button>
             </div>
           ) : (
@@ -110,14 +111,14 @@ export default function Cart({ onClose, onCheckout }: CartProps) {
         {items.length > 0 && (
           <div className="border-t p-6 sticky bottom-0 bg-white animate-fade-in-up">
             <div className="flex justify-between items-center mb-4">
-              <span className="text-lg font-semibold text-navy-900">{t("cart.total")}</span>
+              <span className="text-lg font-semibold text-navy-900">{tCart("total")}</span>
               <span className="text-2xl font-bold text-gold-600 animate-pulse">${totalPrice.toFixed(2)}</span>
             </div>
             <button
               onClick={onCheckout}
               className="w-full bg-hallab-blue hover:bg-navy-800 text-white py-4 px-6 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
-              {t("cart.checkout")}
+              {tCart("checkout")}
             </button>
           </div>
         )}

@@ -1,16 +1,15 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { LanguageProvider } from "./contexts/LanguageContext"
-import { CartProvider } from "./contexts/CartContext"
-import LanguageSelector from "./components/LanguageSelector"
-import Header from "./components/Header"
-import Hero from "./components/Hero"
-import Menu from "./components/Menu"
-import Cart from "./components/Cart"
-import OrderModal from "./components/OrderModal"
-import CheckoutModal from "./components/CheckoutModal"
-import Contact from "./components/Contact"
+import { CartProvider } from "../../contexts/CartContext"
+import LanguageSelector from "../../components/LanguageSelector"
+import Header from "../../components/Header"
+import Hero from "../../components/Hero"
+import Menu from "../../components/Menu"
+import Cart from "../../components/Cart"
+import OrderModal from "../../components/OrderModal"
+import CheckoutModal from "../../components/CheckoutModal"
+import Contact from "../../components/Contact"
 
 export default function Home() {
   const [showLanguageSelector, setShowLanguageSelector] = useState(false)
@@ -28,7 +27,6 @@ export default function Home() {
   }, [])
 
   return (
-    <LanguageProvider>
       <CartProvider>
         <div className="min-h-screen bg-cream-50">
           {showLanguageSelector && <LanguageSelector onClose={() => setShowLanguageSelector(false)} />}
@@ -53,6 +51,5 @@ export default function Home() {
           {showCheckout && <CheckoutModal onClose={() => setShowCheckout(false)} />}
         </div>
       </CartProvider>
-    </LanguageProvider>
   )
 }
