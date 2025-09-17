@@ -2,25 +2,37 @@
 
 import { useState } from "react"
 import { X, Plus, Minus } from "lucide-react"
-import { useLanguage } from "../contexts/LanguageContext"
+import { useTranslations } from "next-intl"
 import { useCart } from "../contexts/CartContext"
 import Image from "next/image"
 
+interface MenuItem {
+  id: string
+  name: string
+  nameAr: string
+  description: string
+  price: number
+  availableToday: boolean
+  image: string
+}
+
 interface OrderModalProps {
-  item: any
+  item: MenuItem
   onClose: () => void
 }
 
 export default function OrderModal({ item, onClose }: OrderModalProps) {
-  const { t } = useLanguage()
+  const t = useTranslations()
+  const tItems = useTranslations('items')
+  const tMenu = useTranslations('menu')
   const { addItem } = useCart()
   const [quantity, setQuantity] = useState(1)
 
   const handleAddToCart = () => {
     addItem({
       id: item.id,
-      name: t(item.name),
-      nameAr: t(item.nameAr),
+      name: tItems(item.name + '.name'),
+      nameAr: tItems(item.name + '.name'),
       price: item.price,
       availableToday: item.availableToday,
       image: item.image,
@@ -37,7 +49,7 @@ export default function OrderModal({ item, onClose }: OrderModalProps) {
       <div className="bg-white/95 backdrop-blur-sm rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-white/20 animate-modal-fade-in">
         {/* Header */}
         <div className="flex justify-between items-center p-6 border-b animate-fade-in-down">
-          <h2 className="text-2xl font-bold text-navy-900">{t(item.name)}</h2>
+          <h2 className="text-2xl font-bold text-navy-900">{tItems(item.name + '.name')}</h2>
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:rotate-90"
@@ -52,7 +64,7 @@ export default function OrderModal({ item, onClose }: OrderModalProps) {
           <div className="overflow-hidden rounded-lg mb-4">
             <Image
               src={item.image || "/placeholder.svg"}
-              alt={t(item.name)}
+              alt={tItems(item.name + '.name')}
               width={400}
               height={250}
               className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
@@ -65,11 +77,11 @@ export default function OrderModal({ item, onClose }: OrderModalProps) {
               item.availableToday ? "bg-navy-100 text-hallab-blue" : "bg-gold-100 text-gold-800"
             }`}
           >
-            {item.availableToday ? t("menu.available.today") : t("menu.ready.tomorrow")}
+            {item.availableToday ? tMenu("available.today") : tMenu("ready.tomorrow")}
           </div>
 
           {/* Description */}
-          <p className="text-navy-700 mb-6 leading-relaxed animate-fade-in">{t(item.description)}</p>
+          <p className="text-navy-700 mb-6 leading-relaxed animate-fade-in">{tItems(item.description)}</p>
 
           {/* Price */}
           <div className="text-3xl font-bold text-gold-600 mb-6 animate-bounce">${item.price}</div>

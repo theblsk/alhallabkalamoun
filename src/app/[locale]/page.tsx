@@ -11,9 +11,19 @@ import OrderModal from "../../components/OrderModal"
 import CheckoutModal from "../../components/CheckoutModal"
 import Contact from "../../components/Contact"
 
+interface MenuItem {
+  id: string
+  name: string
+  nameAr: string
+  description: string
+  price: number
+  availableToday: boolean
+  image: string
+}
+
 export default function Home() {
   const [showLanguageSelector, setShowLanguageSelector] = useState(false)
-  const [selectedItem, setSelectedItem] = useState(null)
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null)
   const [showCart, setShowCart] = useState(false)
   const [showCheckout, setShowCheckout] = useState(false)
 

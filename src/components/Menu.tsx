@@ -1,6 +1,5 @@
 "use client"
 
-import { useLanguage } from "../contexts/LanguageContext"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
 
@@ -97,8 +96,18 @@ const menuItems = [
   },
 ]
 
+interface MenuItem {
+  id: string
+  name: string
+  nameAr: string
+  description: string
+  price: number
+  availableToday: boolean
+  image: string
+}
+
 interface MenuProps {
-  onItemClick: (item: any) => void
+  onItemClick: (item: MenuItem) => void
 }
 
 export default function Menu({ onItemClick }: MenuProps) {

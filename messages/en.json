@@ -146,5 +146,12 @@
       "daily": "Daily: 8:00 AM - 10:00 PM"
     },
     "orders": "For Orders & Inquiries"
+  },
+  "quantity": "Quantity",
+  "price": "Price",
+  "add": {
+    "to": {
+      "cart": "Add to Cart"
+    }
   }
 }

@@ -1,7 +1,6 @@
 "use client"
 
 import { X, Plus, Minus, Trash2 } from "lucide-react"
-import { useLanguage } from "../contexts/LanguageContext"
 import { useCart } from "../contexts/CartContext"
 import Image from "next/image"
 import { useTranslations } from "next-intl"

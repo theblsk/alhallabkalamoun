@@ -4,7 +4,6 @@ import type React from "react"
 
 import { useState } from "react"
 import { X } from "lucide-react"
-import { useLanguage } from "../contexts/LanguageContext"
 import { useCart } from "../contexts/CartContext"
 import { useTranslations } from "next-intl"
 

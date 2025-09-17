@@ -6,7 +6,7 @@ import { useRouter, usePathname } from "@/i18n/navigation"
 import { useCart } from "../contexts/CartContext"
 import { SignedIn, SignedOut, SignInButton, SignUpButton, SignOutButton } from "@clerk/nextjs"
 import { useTranslations } from "next-intl"
-import { cookies } from "next/headers"
+
 
 interface HeaderProps {
   onCartClick: () => void
