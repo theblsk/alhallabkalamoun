@@ -77,7 +77,7 @@ export default function Header({ onCartClick }: HeaderProps) {
                   {tAuth('signIn')}
                 </button>
               </SignInButton>
-              <SignUpButton mode="modal" forceRedirectUrl="/complete-profile" fallbackRedirectUrl="/complete-profile">
+              <SignUpButton mode="modal" forceRedirectUrl={`${locale}/complete-profile`} fallbackRedirectUrl={`${locale}/complete-profile`}>
                 <button className="inline-flex h-9 items-center rounded-full bg-gold-500 px-4 text-sm font-medium text-hallab-blue transition hover:bg-gold-400">
                   {tAuth('signUp')}
                 </button>

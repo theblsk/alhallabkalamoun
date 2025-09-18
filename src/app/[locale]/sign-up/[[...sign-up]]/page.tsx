@@ -1,11 +1,13 @@
 import { SignUp } from "@clerk/nextjs";
+import { getLocale } from "next-intl/server";
 
-export default function Page() {
+export default async function Page() {
+  const locale = await getLocale()
   return (
     <SignUp
-      path="/sign-up"
-      forceRedirectUrl="/complete-profile"
-      fallbackRedirectUrl="/complete-profile"
+      path={`/${locale}/sign-up`}
+      forceRedirectUrl={`/${locale}/complete-profile`}
+      fallbackRedirectUrl={`/${locale}/complete-profile`}
     />
   );
 }

@@ -153,5 +153,28 @@
     "to": {
       "cart": "Add to Cart"
     }
+  },
+  "completeProfile": {
+    "title": "Complete Your Profile",
+    "subtitle": "Please provide your information to complete your account setup",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phoneNumber": "Phone Number",
+    "email": "Email Address",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastNamePlaceholder": "Enter your last name",
+    "phoneNumberPlaceholder": "Enter your phone number",
+    "emailPlaceholder": "Enter your email address",
+    "emailLocked": "Email is locked to your account",
+    "completeProfile": "Complete Profile",
+    "saving": "Saving...",
+    "errors": {
+      "generic": "An error occurred. Please try again.",
+      "required": "All fields are required",
+      "emailInvalid": "Please enter a valid email address",
+      "phoneInvalid": "Please enter a valid phone number",
+      "emailExists": "This email is already in use",
+      "profileExists": "Profile already exists"
+    }
   }
 }

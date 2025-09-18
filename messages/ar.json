@@ -153,5 +153,28 @@
     "to": {
       "cart": "أضف للسلة"
     }
+  },
+  "completeProfile": {
+    "title": "أكمل ملفك الشخصي",
+    "subtitle": "يرجى تقديم معلوماتك لإكمال إعداد حسابك",
+    "firstName": "الاسم الأول",
+    "lastName": "الاسم الأخير",
+    "phoneNumber": "رقم الهاتف",
+    "email": "البريد الإلكتروني",
+    "firstNamePlaceholder": "أدخل اسمك الأول",
+    "lastNamePlaceholder": "أدخل اسمك الأخير",
+    "phoneNumberPlaceholder": "أدخل رقم هاتفك",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "emailLocked": "البريد الإلكتروني مقفل على حسابك",
+    "completeProfile": "إكمال الملف الشخصي",
+    "saving": "جاري الحفظ...",
+    "errors": {
+      "generic": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+      "required": "جميع الحقول مطلوبة",
+      "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح",
+      "phoneInvalid": "يرجى إدخال رقم هاتف صحيح",
+      "emailExists": "هذا البريد الإلكتروني مستخدم بالفعل",
+      "profileExists": "الملف الشخصي موجود بالفعل"
+    }
   }
 }
